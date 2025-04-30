@@ -11,7 +11,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # Environment setup
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["COHERE_API_KEY"] = ""
+os.environ["COHERE_API_KEY"] = "VCNVMrAMyOgRhWAqOZSuHVictvcqey2CpYRbShE1"
 os.environ["LANGCHAIN_ENDPOINT"]="https://api.smith.langchain.com"
 os.environ["LANGCHAIN_API_KEY"]=""
 os.environ["LANGCHAIN_PROJECT"]=""

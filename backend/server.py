@@ -25,6 +25,7 @@ cors(app)
 # Download necessary NLTK data
 nltk.download('punkt')
 nltk.download('stopwords')
+
 # Initialize the summarization pipeline
 model_name = 'pszemraj/long-t5-tglobal-base-16384-book-summary'
 summarizer = pipeline('summarization', model=model_name)
@@ -40,7 +41,6 @@ async def chat():
     global chatbot, preprocessing_done
     if not preprocessing_done:
         return {"error": "Chatbot is not yet ready. Please wait for preprocessing to complete."}, 400
-
 
     """WebSocket handler for real-time chat."""
     while True:
@@ -125,6 +125,7 @@ def google_dork_search(keywords, num_results=5):
     queries = [f'"{keyword}"' for keyword in keywords]
     with ThreadPoolExecutor() as executor:
         results = list(executor.map(perform_search, queries))
+        print("r", results)
     # Flatten the list of results from different queries
     search_results = [item for sublist in results for item in sublist]
     return search_results[:num_results]  # Limit to top results
